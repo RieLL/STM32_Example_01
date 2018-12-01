@@ -18,8 +18,8 @@ LDFLAGS += -lgcc -lm -lc
 INCLUDE_DIRS := include
 
 DEFINES += STM32F10X_MD
-DEFINES += USE_STDPERIPH_DRIVER
-DEFINES += SYSCLK_FREQ_72MHz
+#DEFINES += USE_STDPERIPH_DRIVER
+#DEFINES += SYSCLK_FREQ_72MHz
 
 CFLAGS += $(addprefix -I, $(INCLUDE_DIRS))
 CFLAGS += $(addprefix -D, $(DEFINES))
@@ -69,7 +69,8 @@ binary:
 	@$(CP) -O binary $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).bin
 	@rm -rf $(BUILD_DIR)/$(TARGET).elf
 #-------------------------------------------------------------------------------
+rebuild: clean all
+#-------------------------------------------------------------------------------
 clean:
-	@echo "clean"
 	@rm -rf $(BUILD_DIR)
 #-------------------------------------------------------------------------------
